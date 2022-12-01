@@ -290,9 +290,9 @@ class ControlJoy:
             ymove = 0.0
         
         # yaw
-        if status.L1:
+        if status.R1:
             yaw = -rotate_speed_pos
-        elif status.R1:
+        elif status.L1:
             yaw = rotate_speed_pos
         elif status.right_analog_x != 0:
             yaw = status.right_analog_x * rotate_speed_pos
