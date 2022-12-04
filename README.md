@@ -4,6 +4,12 @@
   <img src="./docs/gazebo_envi.jpg" width=80% height=80%>
 </p>
 
+Need to add models path into .bashrc file
+```
+export GAZEBO_RESOURCE_PATH=~/(workspace)/src/robotbase/models:${GAZEBO_RESOURCE_PATH}
+export GAZEBO_MODEL_PATH=~/(workspace)/src/robotbase/models:${GAZEBO_MODEL_PATH}
+```
+
 To open the gazebo simulation
 ```
 roslaunch robotbase sim_map.launch 
