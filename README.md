@@ -10,7 +10,7 @@ export GAZEBO_RESOURCE_PATH=~/(workspace)/src/robotbase/models:${GAZEBO_RESOURCE
 export GAZEBO_MODEL_PATH=~/(workspace)/src/robotbase/models:${GAZEBO_MODEL_PATH}
 ```
 
-To open the gazebo simulation
+To open the gazebo simulation with joystick
 ```
 roslaunch robotbase sim_map.launch 
 ```
