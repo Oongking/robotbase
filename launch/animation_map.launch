@@ -1,0 +1,15 @@
+<launch>
+
+  <arg name="paused" default="false"/>
+  <arg name="gazebo_gui" default="true"/>
+
+  <arg name="world" default="$(find robotbase)/world/anime_abu2023.world" />
+
+  <!-- startup simulated world -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(arg world)" />
+    <arg name="paused" value="true"/>
+    <arg name="gui" value="$(arg gazebo_gui)"/>
+  </include>
+
+</launch>

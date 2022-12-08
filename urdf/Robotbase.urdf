@@ -310,22 +310,23 @@
     </gazebo>
 
     <gazebo>
-    <plugin name="object_controller" filename="libgazebo_ros_planar_move.so">
-      <commandTopic>cmd_vel</commandTopic>
-      <odometryTopic>odom</odometryTopic>
-      <odometryFrame>odom</odometryFrame>
-      <odometryRate>20.0</odometryRate>
-      <robotbaseFrame>base_footprint</robotbaseFrame>
-    </plugin>
-
-    <!-- From lib fix slow gravity -->
-    <!-- <plugin name="object_controller" filename="libropod_control_plugin.so">
+    <!-- If not have roopod_control_plugin -->
+    <!-- <plugin name="object_controller" filename="libgazebo_ros_planar_move.so">
       <commandTopic>cmd_vel</commandTopic>
       <odometryTopic>odom</odometryTopic>
       <odometryFrame>odom</odometryFrame>
       <odometryRate>20.0</odometryRate>
       <robotbaseFrame>base_footprint</robotbaseFrame>
     </plugin> -->
+
+    <!-- From lib fix slow gravity -->
+    <plugin name="object_controller" filename="libropod_control_plugin.so">
+      <commandTopic>cmd_vel</commandTopic>
+      <odometryTopic>odom</odometryTopic>
+      <odometryFrame>odom</odometryFrame>
+      <odometryRate>20.0</odometryRate>
+      <robotbaseFrame>base_footprint</robotbaseFrame>
+    </plugin>
   </gazebo>
 
   <material name="black">
