@@ -87,7 +87,7 @@
 						<time>12.5</time>
                			<pose>-4.5 3.2 0.1 0 0 -1.5707</pose>
 					</waypoint> 
-					<!-- ER running to pole1=2 1.8s-->
+					<!-- ER running to pole2 1.8s-->
 					<waypoint>
 						<time>14.3</time>
                			<pose>-4.5 0 0.1 0 0 -1.5707</pose>
@@ -136,78 +136,682 @@
         	<script>
           		<loop>false</loop>
           		<auto_start>true</auto_start>
-          		<trajectory id="1" type="RR" tension="1">
+          		<trajectory id="0" type="RR" tension="1">
 				<!-- start -->
             		<waypoint>
                			<time>0.0</time>
-               			<pose>-5.5 0 0.5 0 0 0</pose>
+               			<pose>-5.5 0 0.35 0 0 0</pose>
         			</waypoint>
 
 					<!-- ER running to angkok wat 3s -->
             		<waypoint>
 						<time>3.0</time>
-               			<pose>-4.5 1.5 0.5 0 0 -1.5707</pose>
+               			<pose>-4.5 1.5 0.35 0 0 -1.5707</pose>
 					</waypoint>
 
 					<!-- ER Send RR to Angk 3s -->
 					<waypoint>
 						<time>6.0</time>
-               			<pose>-2.5 1.5 0.5 0 0 -1.5707</pose>
+               			<pose>-2.5 1.5 0.35 0 0 -1.5707</pose>
 					</waypoint>
 
 					<!-- RR running load ring zone 1.5s -->
 					<waypoint>
 						<time>7.5</time>
-               			<pose>-2.5 0 0.5 0 0 -1.5707</pose>
+               			<pose>-2.5 0 0.35 0 0 -1.5707</pose>
 					</waypoint>
 
 					<!-- RR load ring 2s -->
 					<waypoint>
 						<time>9.5</time>
-               			<pose>-2.5 0 0.5 0 0 -1.5707</pose>
+               			<pose>-2.5 0 0.35 0 0 -1.5707</pose>
 					</waypoint>
 
 					<!-- RR running to pos1 2.5s-->
 					<waypoint>
 						<time>10.75</time>
-               			<pose>-2.5 2 0.5 0 0 0</pose>
+               			<pose>-2.5 2 0.35 0 0 0</pose>
 					</waypoint>
 					<waypoint>
 						<time>12</time>
-               			<pose>-0.5 2 0.5 0 0 0</pose>
+               			<pose>-0.5 2 0.35 0 0 0</pose>
 					</waypoint>
 					
 					<!-- RR shoot ring1,2,3 9s -->
 					<waypoint>
 						<time>15</time>
-               			<pose>-0.5 2 0.5 0 0 0.7853</pose>
+               			<pose>-0.5 2 0.35 0 0 0.7853</pose>
 					</waypoint>
 					<waypoint>
 						<time>18</time>
-               			<pose>-0.5 2 0.5 0 0 0</pose>
+               			<pose>-0.5 2 0.35 0 0 0</pose>
 					</waypoint>
 					<waypoint>
 						<time>21</time>
-               			<pose>-0.5 2 0.5 0 0 -0.7853</pose>
+               			<pose>-0.5 2 0.35 0 0 -0.7853</pose>
 					</waypoint>
 					<!-- RR runing to pos2 6s -->
 					<waypoint>
 						<time>22.5</time>
-               			<pose>-2.5 2 0.5 0 0 -1.5707</pose>
+               			<pose>-2.5 2 0.35 0 0 -1.5707</pose>
 					</waypoint>
 					<waypoint>
 						<time>25.5</time>
-               			<pose>-2.5 -2 0.5 0 0 -1.5707</pose>
+               			<pose>-2.5 -2 0.35 0 0 -1.5707</pose>
 					</waypoint>
 					<waypoint>
 						<time>27</time>
-               			<pose>-0.5 -2 0.5 0 0 0.7853</pose>
+               			<pose>-0.5 -2 0.35 0 0 0.7853</pose>
 					</waypoint>
 					<!-- RR shoot ring4,5 6s -->
 					<waypoint>
 						<time>33</time>
-               			<pose>-0.5 -2 0.5 0 0 -0.7853</pose>
+               			<pose>-0.5 -2 0.35 0 0 -0.7853</pose>
 					</waypoint>
+
+				</trajectory>
+			</script>
+		</actor>
+
+
+		<actor name="ring1">
+        	<link name="ring1">
+				<visual name="visual">
+					<geometry>
+					<mesh>
+						<uri>model://robot_base/stl_files/abu_ring.STL</uri>
+						<scale>1 1 1</scale>
+					</mesh>
+					</geometry>
+					<material>
+						<ambient>0.1 0.208 1 1</ambient>
+						<diffuse>0.1 0.1 0.1 1</diffuse>
+						<specular>1 1 1 0</specular>
+						<emissive>0 0 0 1</emissive>
+					</material> 
+				</visual>
+			</link>
+
+        	<script>
+          		<loop>false</loop>
+          		<auto_start>true</auto_start>
+          		<trajectory id="0" type="ring1" tension="1">
+				<!-- start -->
+            		<waypoint>
+               			<time>0.0</time>
+               			<pose>-5.75 5.75 0.3 1.5707 0 0</pose>
+        			</waypoint>
+					<waypoint>
+               			<time>8.5</time>
+               			<pose>-5.75 5.75 0.3 1.5707 0 0</pose>
+        			</waypoint>
+					<!-- ER load ring -->
+					<waypoint>
+						<time>10.5</time>
+               			<pose>-5.5 5 0.7 1.5707 0 0</pose>
+					</waypoint> 
+					<!-- ER running to pole1 1s-->
+					<waypoint>
+						<time>11.5</time>
+               			<pose>-4.5 3.2 0.7 1.5707 0 0</pose>
+					</waypoint> 
+					<!-- ER shoot ring1 to pole1 1s-->
+					<waypoint>
+						<time>12.5</time>
+               			<pose>-3.2 3.2 0.83 1.5707 0 0</pose>
+					</waypoint> 
+
+					<waypoint>
+						<time>33</time>
+               			<pose>-3.2 3.2 0.83 1.5707 0 0</pose>
+					</waypoint> 
+
+				</trajectory>
+			</script>
+		</actor>
+
+		<actor name="ring2">
+        	<link name="ring2">
+				<visual name="visual">
+					<geometry>
+					<mesh>
+						<uri>model://robot_base/stl_files/abu_ring.STL</uri>
+						<scale>1 1 1</scale>
+					</mesh>
+					</geometry>
+					<material>
+						<ambient>0.1 0.208 1 1</ambient>
+						<diffuse>0.1 0.1 0.1 1</diffuse>
+						<specular>1 1 1 0</specular>
+						<emissive>0 0 0 1</emissive>
+					</material> 
+				</visual>
+			</link>
+
+        	<script>
+          		<loop>false</loop>
+          		<auto_start>true</auto_start>
+          		<trajectory id="0" type="ring2" tension="1">
+				<!-- start -->
+            		<waypoint>
+               			<time>0.0</time>
+               			<pose>-5.75 5.75 0.2 1.5707 0 0</pose>
+        			</waypoint>
+					<waypoint>
+               			<time>8.5</time>
+               			<pose>-5.75 5.75 0.2 1.5707 0 0</pose>
+        			</waypoint>
+					<!-- ER load ring -->
+					<waypoint>
+						<time>10.5</time>
+               			<pose>-5.5 5 0.6 1.5707 0 0</pose>
+					</waypoint> 
+					<!-- ER running to pole1 1s-->
+					<waypoint>
+						<time>11.5</time>
+               			<pose>-4.5 3.2 0.6 1.5707 0 0</pose>
+					</waypoint> 
+					<!-- ER shoot ring1 to pole1 1s-->
+					<waypoint>
+						<time>12.5</time>
+               			<pose>-4.5 3.2 0.6 1.5707 0 0</pose>
+					</waypoint> 
+					<!-- ER running to pole2 1.8s-->
+					<waypoint>
+						<time>14.3</time>
+               			<pose>-4.5 0 0.6 1.5707 0 0</pose>
+					</waypoint> 
+					<!-- ER shoot ring2 to pole2 1s-->
+					<waypoint>
+						<time>15.3</time>
+               			<pose>-3.2 0 0.83 1.5707 0 0</pose>
+					</waypoint> 
+
+
+					<waypoint>
+						<time>33</time>
+               			<pose>-3.2 0 0.83 1.5707 0 0</pose>
+					</waypoint> 
+					
+
+				</trajectory>
+			</script>
+		</actor>
+
+		<actor name="ring3">
+        	<link name="ring3">
+				<visual name="visual">
+					<geometry>
+					<mesh>
+						<uri>model://robot_base/stl_files/abu_ring.STL</uri>
+						<scale>1 1 1</scale>
+					</mesh>
+					</geometry>
+					<material>
+						<ambient>0.1 0.208 1 1</ambient>
+						<diffuse>0.1 0.1 0.1 1</diffuse>
+						<specular>1 1 1 0</specular>
+						<emissive>0 0 0 1</emissive>
+					</material> 
+				</visual>
+			</link>
+
+        	<script>
+          		<loop>false</loop>
+          		<auto_start>true</auto_start>
+          		<trajectory id="0" type="ring3" tension="1">
+				<!-- start -->
+            		<waypoint>
+               			<time>0.0</time>
+               			<pose>-5.75 5.75 0.1 1.5707 0 0</pose>
+        			</waypoint>
+					<waypoint>
+               			<time>8.5</time>
+               			<pose>-5.75 5.75 0.1 1.5707 0 0</pose>
+        			</waypoint>
+					<!-- ER load ring -->
+					<waypoint>
+						<time>10.5</time>
+               			<pose>-5.5 5 0.5 1.5707 0 0</pose>
+					</waypoint> 
+					<!-- ER running to pole1 1s-->
+					<waypoint>
+						<time>11.5</time>
+               			<pose>-4.5 3.2 0.5 1.5707 0 0</pose>
+					</waypoint> 
+					<!-- ER shoot ring1 to pole1 1s-->
+					<waypoint>
+						<time>12.5</time>
+               			<pose>-4.5 3.2 0.5 1.5707 0 0</pose>
+					</waypoint> 
+					<!-- ER running to pole2 1.8s-->
+					<waypoint>
+						<time>14.3</time>
+               			<pose>-4.5 0 0.5 1.5707 0 0</pose>
+					</waypoint> 
+					<!-- ER shoot ring2 to pole2 1s-->
+					<waypoint>
+						<time>15.3</time>
+               			<pose>-4.5 0 0.5 1.5707 0 0</pose>
+					</waypoint> 
+					<!-- ER running to pole3 1.8s-->
+					<waypoint>
+						<time>17.1</time>
+               			<pose>-4.5 -3.2 0.5 1.5707 0 0</pose>
+					</waypoint> 
+					<!-- ER shoot ring3 to pole3 1s-->
+					<waypoint>
+						<time>18.1</time>
+               			<pose>-3.2 -3.2 0.83 1.5707 0 0</pose>
+					</waypoint> 
+					<waypoint>
+						<time>33</time>
+               			<pose>-3.2 -3.2 0.83 1.5707 0 0</pose>
+					</waypoint> 
+
+				</trajectory>
+			</script>
+		</actor>
+
+
+
+
+
+
+		<actor name="ring4">
+        	<link name="ring4">
+				<visual name="visual">
+					<geometry>
+					<mesh>
+						<uri>model://robot_base/stl_files/abu_ring.STL</uri>
+						<scale>1 1 1</scale>
+					</mesh>
+					</geometry>
+					<material>
+						<ambient>0.1 0.208 1 1</ambient>
+						<diffuse>0.1 0.1 0.1 1</diffuse>
+						<specular>1 1 1 0</specular>
+						<emissive>0 0 0 1</emissive>
+					</material> 
+				</visual>
+			</link>
+
+        	<script>
+          		<loop>false</loop>
+          		<auto_start>true</auto_start>
+          		<trajectory id="0" type="ring4" tension="1">
+				<!-- start -->
+            		<waypoint>
+               			<time>0.0</time>
+               			<pose>-1.75 0 0.6 1.5707 0 0</pose>
+        			</waypoint>
+					
+					<!-- RR running load ring zone 1.5s -->
+					<waypoint>
+						<time>7.5</time>
+               			<pose>-1.75 0 0.6 1.5707 0 0</pose>
+					</waypoint>
+
+					<!-- RR load ring 2s -->
+					<waypoint>
+						<time>9.5</time>
+               			<pose>-2.5 0 0.65 1.5707 0 0</pose>
+					</waypoint>
+
+					<!-- RR running to pos1 2.5s-->
+					<waypoint>
+						<time>10.75</time>
+               			<pose>-2.5 2 0.65 1.5707 0 0</pose>
+					</waypoint>
+					<waypoint>
+						<time>12</time>
+               			<pose>-0.5 2 0.65 1.5707 0 0</pose>
+					</waypoint>
+					
+					<!-- RR shoot ring1,2,3 9s -->
+					<waypoint>
+						<time>15</time>
+               			<pose>1.3 1.3 1.03 1.5707 0 0</pose>
+					</waypoint>
+					
+				
+
+					<waypoint>
+						<time>33</time>
+               			<pose>1.3 1.3 1.03 1.5707 0 0</pose>
+					</waypoint> 
+
+				</trajectory>
+			</script>
+		</actor>
+
+		<actor name="ring5">
+        	<link name="ring5">
+				<visual name="visual">
+					<geometry>
+					<mesh>
+						<uri>model://robot_base/stl_files/abu_ring.STL</uri>
+						<scale>1 1 1</scale>
+					</mesh>
+					</geometry>
+					<material>
+						<ambient>0.1 0.208 1 1</ambient>
+						<diffuse>0.1 0.1 0.1 1</diffuse>
+						<specular>1 1 1 0</specular>
+						<emissive>0 0 0 1</emissive>
+					</material> 
+				</visual>
+			</link>
+
+        	<script>
+          		<loop>false</loop>
+          		<auto_start>true</auto_start>
+          		<trajectory id="0" type="ring5" tension="1">
+				<!-- start -->
+            		<waypoint>
+               			<time>0.0</time>
+               			<pose>-1.75 0 0.55 1.5707 0 0</pose>
+        			</waypoint>
+					
+					<!-- RR running load ring zone 1.5s -->
+					<waypoint>
+						<time>7.5</time>
+               			<pose>-1.75 0 0.55 1.5707 0 0</pose>
+					</waypoint>
+
+					<!-- RR load ring 2s -->
+					<waypoint>
+						<time>9.5</time>
+               			<pose>-2.5 0 0.6 1.5707 0 0</pose>
+					</waypoint>
+
+					<!-- RR running to pos1 2.5s-->
+					<waypoint>
+						<time>10.75</time>
+               			<pose>-2.5 2 0.6 1.5707 0 0</pose>
+					</waypoint>
+					<waypoint>
+						<time>12</time>
+               			<pose>-0.5 2 0.6 1.5707 0 0</pose>
+					</waypoint>
+					
+					<!-- RR shoot ring1,2,3 9s -->
+					<waypoint>
+						<time>15</time>
+               			<pose>-0.5 2 0.6 1.5707 0 0</pose>
+					</waypoint>
+					<waypoint>
+						<time>18</time>
+               			<pose>0 0 1.63 1.5707 0 0</pose>
+					</waypoint>
+
+					<waypoint>
+						<time>33</time>
+               			<pose>0 0 1.63 1.5707 0 0</pose>
+					</waypoint> 
+
+				</trajectory>
+			</script>
+		</actor>
+
+		<actor name="ring6">
+        	<link name="ring6">
+				<visual name="visual">
+					<geometry>
+					<mesh>
+						<uri>model://robot_base/stl_files/abu_ring.STL</uri>
+						<scale>1 1 1</scale>
+					</mesh>
+					</geometry>
+					<material>
+						<ambient>0.1 0.208 1 1</ambient>
+						<diffuse>0.1 0.1 0.1 1</diffuse>
+						<specular>1 1 1 0</specular>
+						<emissive>0 0 0 1</emissive>
+					</material> 
+				</visual>
+			</link>
+
+        	<script>
+          		<loop>false</loop>
+          		<auto_start>true</auto_start>
+          		<trajectory id="0" type="ring6" tension="1">
+				<!-- start -->
+            		<waypoint>
+               			<time>0.0</time>
+               			<pose>-1.75 0 0.5 1.5707 0 0</pose>
+        			</waypoint>
+					
+					<!-- RR running load ring zone 1.5s -->
+					<waypoint>
+						<time>7.5</time>
+               			<pose>-1.75 0 0.5 1.5707 0 0</pose>
+					</waypoint>
+
+					<!-- RR load ring 2s -->
+					<waypoint>
+						<time>9.5</time>
+               			<pose>-2.5 0 0.55 1.5707 0 0</pose>
+					</waypoint>
+
+					<!-- RR running to pos1 2.5s-->
+					<waypoint>
+						<time>10.75</time>
+               			<pose>-2.5 2 0.55 1.5707 0 0</pose>
+					</waypoint>
+					<waypoint>
+						<time>12</time>
+               			<pose>-0.5 2 0.55 1.5707 0 0</pose>
+					</waypoint>
+					
+					<!-- RR shoot ring1,2,3 9s -->
+					<waypoint>
+						<time>15</time>
+               			<pose>-0.5 2 0.55 1.5707 0 0</pose>
+					</waypoint>
+					<waypoint>
+						<time>18</time>
+               			<pose>-0.5 2 0.55 1.5707 0 0</pose>
+					</waypoint>
+					<waypoint>
+						<time>21</time>
+               			<pose>-1.3 1.3 1.03 1.5707 0 0</pose>
+					</waypoint>
+
+
+					<waypoint>
+						<time>33</time>
+               			<pose>-1.3 1.3 1.03 1.5707 0 0</pose>
+					</waypoint> 
+
+				</trajectory>
+			</script>
+		</actor>
+
+
+		<actor name="ring7">
+        	<link name="ring7">
+				<visual name="visual">
+					<geometry>
+					<mesh>
+						<uri>model://robot_base/stl_files/abu_ring.STL</uri>
+						<scale>1 1 1</scale>
+					</mesh>
+					</geometry>
+					<material>
+						<ambient>0.1 0.208 1 1</ambient>
+						<diffuse>0.1 0.1 0.1 1</diffuse>
+						<specular>1 1 1 0</specular>
+						<emissive>0 0 0 1</emissive>
+					</material> 
+				</visual>
+			</link>
+
+        	<script>
+          		<loop>false</loop>
+          		<auto_start>true</auto_start>
+          		<trajectory id="0" type="ring7" tension="1">
+				<!-- start -->
+            		<waypoint>
+               			<time>0.0</time>
+               			<pose>-1.75 0 0.45 1.5707 0 0</pose>
+        			</waypoint>
+					
+					<!-- RR running load ring zone 1.5s -->
+					<waypoint>
+						<time>7.5</time>
+               			<pose>-1.75 0 0.45 1.5707 0 0</pose>
+					</waypoint>
+
+					<!-- RR load ring 2s -->
+					<waypoint>
+						<time>9.5</time>
+               			<pose>-2.5 0 0.5 1.5707 0 0</pose>
+					</waypoint>
+
+					<!-- RR running to pos1 2.5s-->
+					<waypoint>
+						<time>10.75</time>
+               			<pose>-2.5 2 0.5 1.5707 0 0</pose>
+					</waypoint>
+					<waypoint>
+						<time>12</time>
+               			<pose>-0.5 2 0.5 1.5707 0 0</pose>
+					</waypoint>
+					
+					<!-- RR shoot ring1,2,3 9s -->
+					<waypoint>
+						<time>15</time>
+               			<pose>-0.5 2 0.5 1.5707 0 0</pose>
+					</waypoint>
+					<waypoint>
+						<time>18</time>
+               			<pose>-0.5 2 0.5 1.5707 0 0</pose>
+					</waypoint>
+					<waypoint>
+						<time>21</time>
+               			<pose>-0.5 2 0.5 1.5707 0 0</pose>
+					</waypoint>
+					<!-- RR runing to pos2 6s -->
+					<waypoint>
+						<time>22.5</time>
+               			<pose>-2.5 2 0.5 1.5707 0 0</pose>
+					</waypoint>
+					<waypoint>
+						<time>25.5</time>
+               			<pose>-2.5 -2 0.5 1.5707 0 0</pose>
+					</waypoint>
+					<waypoint>
+						<time>27</time>
+               			<pose>-0.5 -2 0.5 1.5707 0 0</pose>
+					</waypoint>
+					<!-- RR shoot ring4,5 6s -->
+					<waypoint>
+						<time>30</time>
+               			<pose>-1.3 -1.3 1.03 1.5707 0 0</pose>
+					</waypoint>
+
+
+					<waypoint>
+						<time>33</time>
+               			<pose>-1.3 -1.3 1.03 1.5707 0 0</pose>
+					</waypoint> 
+
+				</trajectory>
+			</script>
+		</actor>
+
+
+		<actor name="ring8">
+        	<link name="ring8">
+				<visual name="visual">
+					<geometry>
+					<mesh>
+						<uri>model://robot_base/stl_files/abu_ring.STL</uri>
+						<scale>1 1 1</scale>
+					</mesh>
+					</geometry>
+					<material>
+						<ambient>0.1 0.208 1 1</ambient>
+						<diffuse>0.1 0.1 0.1 1</diffuse>
+						<specular>1 1 1 0</specular>
+						<emissive>0 0 0 1</emissive>
+					</material> 
+				</visual>
+			</link>
+
+        	<script>
+          		<loop>false</loop>
+          		<auto_start>true</auto_start>
+          		<trajectory id="0" type="ring8" tension="1">
+				<!-- start -->
+            		<waypoint>
+               			<time>0.0</time>
+               			<pose>-1.75 0 0.4 1.5707 0 0</pose>
+        			</waypoint>
+					
+					<!-- RR running load ring zone 1.5s -->
+					<waypoint>
+						<time>7.5</time>
+               			<pose>-1.75 0 0.4 1.5707 0 0</pose>
+					</waypoint>
+
+					<!-- RR load ring 2s -->
+					<waypoint>
+						<time>9.5</time>
+               			<pose>-2.5 0 0.45 1.5707 0 0</pose>
+					</waypoint>
+
+					<!-- RR running to pos1 2.5s-->
+					<waypoint>
+						<time>10.75</time>
+               			<pose>-2.5 2 0.45 1.5707 0 0</pose>
+					</waypoint>
+					<waypoint>
+						<time>12</time>
+               			<pose>-0.5 2 0.45 1.5707 0 0</pose>
+					</waypoint>
+					
+					<!-- RR shoot ring1,2,3 9s -->
+					<waypoint>
+						<time>15</time>
+               			<pose>-0.5 2 0.45 1.5707 0 0</pose>
+					</waypoint>
+					<waypoint>
+						<time>18</time>
+               			<pose>-0.5 2 0.45 1.5707 0 0</pose>
+					</waypoint>
+					<waypoint>
+						<time>21</time>
+               			<pose>-0.5 2 0.45 1.5707 0 0</pose>
+					</waypoint>
+					<!-- RR runing to pos2 6s -->
+					<waypoint>
+						<time>22.5</time>
+               			<pose>-2.5 2 0.45 1.5707 0 0</pose>
+					</waypoint>
+					<waypoint>
+						<time>25.5</time>
+               			<pose>-2.5 -2 0.45 1.5707 0 0</pose>
+					</waypoint>
+					<waypoint>
+						<time>27</time>
+               			<pose>-0.5 -2 0.45 1.5707 0 0</pose>
+					</waypoint>
+					<!-- RR shoot ring4,5 6s -->
+					<waypoint>
+						<time>30</time>
+               			<pose>-0.5 -2 0.45 1.5707 0 0</pose>
+					</waypoint>
+					<waypoint>
+						<time>33</time>
+               			<pose>1.3 -1.3 1.03 1.5707 0 0</pose>
+					</waypoint>
+
+					<waypoint>
+						<time>33</time>
+               			<pose>1.3 -1.3 1.03 1.5707 0 0</pose>
+					</waypoint> 
 
 				</trajectory>
 			</script>
