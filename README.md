@@ -21,7 +21,7 @@ Can use joystick to control the robot
   | `Up` | Robot go **+X** or go **Forward**|
   | `Down` | Robot go **-X** or go **Backward** |
   | `Right` | Robot go **-Y** or go **Right** |
-  | `Down` | Robot go **+Y** or go **Left** |
+  | `Left` | Robot go **+Y** or go **Left** |
   | `L1` | Robot heading go **+Z** |
   | `R1` | Robot heading go **-Z** |
 
