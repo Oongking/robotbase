@@ -229,8 +229,10 @@ class PS4WiredStatus(JoyStatus):
 
 class ControlJoy:
     def __init__(self):
+        self.Speedmove = False
         self.prev_time = rospy.Time.now()
         self.InvertmodeTime = rospy.Time.now()
+        self.SpeedmodeTime = rospy.Time.now()
 
         self.pub = rospy.Publisher("cmd_vel", Twist, queue_size=10)  # Publisher object which will publish "Twist" type messages
                                                     # on the "/cmd_vel" Topic, "queue_size" is the size of the
@@ -266,8 +268,12 @@ class ControlJoy:
     def computeMoveFromJoy(self, status):
         move = Twist() # Creates a Twist message type object
 
-        move_speed_pos = 1.0
-        rotate_speed_pos = 1.0
+        if self.Speedmove:
+            move_speed_pos = 3.0
+            rotate_speed_pos = 3.0
+        else:
+            move_speed_pos = 1.0
+            rotate_speed_pos = 1.0
 
         # x
         if status.up:
@@ -316,6 +322,16 @@ class ControlJoy:
         move = self.computeMoveFromJoy(status)
 
         now = rospy.Time.from_sec(time.time())
+        if status.circle == 1:
+            if (now - self.SpeedmodeTime).to_sec() > 0.5:
+                self.Speedmove = not self.Speedmove
+            self.SpeedmodeTime = now
+            print(f"Speed state {self.Speedmove}")
+            if not self.Speedmove:
+                rospy.loginfo(" Slow Mode ")
+            else:
+                rospy.loginfo(" Speed Mode ")
+
 
         # placement.time_from_start = now - self.prev_time
         if (now - self.prev_time).to_sec() > 1 / 100.0:
